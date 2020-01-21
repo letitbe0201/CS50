@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol股票代碼</th>
+                <th>Name公司名稱</th>
+                <th>Price價格</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ symbolAsked["symbol"] }}</td>
+                <td>{{ symbolAsked["name"] }}</td>
+                <td>{{ symbolAsked["price"] }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

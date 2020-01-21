@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Sheet</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/tables/ -->
+    <table id="players" class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Selection</th>
+                <th>Bet</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in players %}
+                <tr>
+                    <td>{{ player[0] }}</td>
+                    <td>{{ player[1] }}</td>
+                    <td>{{ player[2] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#players').DataTable();
+        } );
+    </script>
+
+
+{% endblock %}

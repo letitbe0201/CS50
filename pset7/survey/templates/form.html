@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Make your bet!</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+
+        <div id="name" class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="name" placeholder="Name" type="text">
+        </div>
+
+        <div id="team" class="from-group">
+            <select class="form-control" name="team">
+                <option disabled selected value="">Select a team</option>
+                <option value="Bucks">Milwaukee Bucks</option>
+                <option value="Raptors">Toronto Raptors</option>
+                <option value="Pacers">Indiana Pacers</option>
+                <option value="Celtics">Boston Celtics</option>
+                <option value="Sixers">Philadelphia Sixers</option>
+                <option value="Nets">Brooklyn Nets</option>
+                <option value="Hornets">Charlotte Hornets</option>
+                <option value="Pistons">Detroit Pistons</option>
+                <option disabled value="blank"></option>
+                <option value="Warriors">Golden State Warriors</option>
+                <option value="Nuggets">Denver Nuggets</option>
+                <option value="Thunder">Oklahoma City Thunder</option>
+                <option value="Trail Blazers">Portland Trail Blazers</option>
+                <option value="Rockets">Houston Rockets</option>
+                <option value="Jazz">Utah Jazz</option>
+                <option value="Spurs">San Antonio Spurs</option>
+                <option value="Lakers">Los Angeles Lakers</option>
+            </select>
+        </div>
+
+        <div id="bet" class="form-group">
+
+            <div class="form-check">
+                <input class="form-check-input" id="10" name="bet" type="radio" value="10">
+                <label class="form-check-label" for="10">
+                    10
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="20" name="bet" type="radio" value="20">
+                <label class="form-check-label" for="20">
+                    20
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="30" name="bet" type="radio" value="30">
+                <label class="form-check-label" for="30">
+                    30
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="40" name="bet" type="radio" value="40">
+                <label class="form-check-label" for="40">
+                    40
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="50" name="bet" type="radio" value="50">
+                <label class="form-check-label" for="50">
+                    50
+                </label>
+            </div>
+
+        </div>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        document.querySelector('form').onsubmit = function() {
+            if (!(document.querySelector('input').value || document.querySelector('select').value)) {
+                alert('Please enter your name, the team you choose and your bet!');
+                return false;
+            }
+            return true;
+        };
+
+    </script>
+
+{% endblock %}

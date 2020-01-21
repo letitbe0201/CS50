@@ -1,0 +1,21 @@
+root
+[|||||||]
+ |
+ ---->[|||||||]
+
+
+node *mrTrack;
+
+load a string of word
+repeat checking a word until \0
+    check the first letter in children[i] of root
+        if = NULL
+            create a newNode
+            root->children[i] = newNode;
+        mrTrack = mrTrack->children[i]
+
+            if the word ends
+                is_word = true of that children[i]
+            check the children[next letter]
+                if the word ends
+                    is_word = true of that children

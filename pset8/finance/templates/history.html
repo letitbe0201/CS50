@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol股票代碼</th>
+                <th>Sell/Buy(S/B)買賣</th>
+                <th>Price價格</th>
+                <th>Shares股</th>
+                <th>Total總計</th>
+                <th>Time時間</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record["symbol"] }}</td>
+                    <td>{{ record["sellbuy"] }}</td>
+                    <td>{{ record["price"] }}</td>
+                    <td>{{ record["shares"] }}</td>
+                    <td>{{ record["total"] }}</td>
+                    <td>{{ record["TIME"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if records|length == 0 %}
+        <form action="/buy">
+            <button class="btn btn-primary" type="submit">Check the market out!</button>
+        </form>
+    {% endif %}
+{% endblock %}

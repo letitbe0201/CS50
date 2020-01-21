@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol股票代碼</th>
+                <th>Name公司名稱</th>
+                <th>Shares股份</th>
+                <th>Price價格</th>
+                <th>Total總計</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{ money }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for row in userOwn %}
+                {% if row["SUM(shares)"] != 0 %}
+                    <tr>
+                        <td>{{ row["symbol"] }}</td>
+                        <td>{{ row["companyName"] }}</td>
+                        <td>{{ row["SUM(shares)"] }}</td>
+                        <td>{{ row["price"] }}</td>
+                        <td>{{ row["total"] }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{ user[0]["cash"] }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

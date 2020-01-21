@@ -1,0 +1,19 @@
+get an input (only allow one file name)
+
+if wrong input return -> 1
+if input file can't be open return -> 2
+
+repeat until end of card
+    read the first 4 byte of the block (512B) and check if it is equal to "0xff 0xd8 0xff 0xe?" //determine where the first photo starts
+        //if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        if yes
+            read 512B and store them
+            check if the start of next block fits the JPEG sign
+                if yes
+                    springf(filename, "%03i.jpg", 2);
+                    FILE *img = fopen(filename, "w");
+                if no keep fwrite the data
+        if no
+            read the next block and check its first 4 byte
+
+close the file

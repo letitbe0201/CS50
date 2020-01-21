@@ -1,0 +1,13 @@
+get input (resizeNum, inputBMP, outputBMP) //check sscanf and atof and get_float
+
+if enter incorrectly (resizeNum is a float between 0.0-100.0) then return 1
+
+else
+
+store the original and new biWidth, biHeight
+store the original and new paddings
+change the biSizeImage and biSize to outfile headers
+
+
+
+retrun 0
